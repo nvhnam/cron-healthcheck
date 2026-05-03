@@ -22,4 +22,4 @@ jobs:
         run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://theblog-nvhnam.vercel.app/home
 
       - name: Ping Food Detector
-        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://fooddetectorv2.streamlit.app/
+        run: curl -s -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://fooddetectorv2.streamlit.app/
