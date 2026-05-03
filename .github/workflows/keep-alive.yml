@@ -15,11 +15,14 @@ jobs:
   ping-websites:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Traffic Shop
-        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://traffic-shop.vercel.app/product-list
+      - name: Ping Traffic Shop Backend
+        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null "https://food-visualizer-backend.vercel.app/product-with-nutrients?fat=all&saturates=all&sugars=all&salt=all&category=All&currentPage=1&limit=1"
 
-      - name: Ping The Blog
-        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://theblog-nvhnam.vercel.app/home
+      - name: Ping The Blog Backend
+        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null "https://theblog-backend-v1-0.onrender.com/posts/all/paginated?page=0&size=5"
 
       - name: Ping Food Detector
         run: curl -s -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://fooddetectorv2.streamlit.app/
+
+      - name: Ping MySQL Agent
+        run: curl -s -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://mysqlagent.streamlit.app/
