@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Traffic Shop
-        run: curl -sSf https://traffic-shop.vercel.app/product-list > /dev/null || echo "Traffic Shop ping failed"
+        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://traffic-shop.vercel.app/product-list
 
       - name: Ping The Blog
-        run: curl -sSf https://theblog-nvhnam.vercel.app/home > /dev/null || echo "The Blog ping failed"
+        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://theblog-nvhnam.vercel.app/home
 
       - name: Ping Food Detector
-        run: curl -sSf https://fooddetectorv2.streamlit.app/ > /dev/null || echo "Food Detector ping failed"
+        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://fooddetectorv2.streamlit.app/
