@@ -16,10 +16,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Ping Traffic Shop
-        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://traffic-shop.vercel.app/product-list
+        run: curl -sL --connect-timeout 10 -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://traffic-shop.vercel.app/product-list
 
       - name: Ping The Blog
-        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://theblog-nvhnam.vercel.app/home
+        run: curl -sL --connect-timeout 10 -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://theblog-nvhnam.vercel.app/home
 
       - name: Ping Food Detector
-        run: curl -sL -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://fooddetectorv2.streamlit.app/
+        run: curl -s --connect-timeout 10 -w "Status %{http_code} from %{url_effective}\n" -o /dev/null https://fooddetectorv2.streamlit.app/
